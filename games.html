@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cyanide | games </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="fire">
+        <div class="logo">
+            <img src="images/cyanidelogo.png" alt="cyanide">
+            <p style="margin-top: -50px; color: rgb(78, 223, 78); margin-left: 250px;"> > Glory to Azerbaijan</p>
+        </div>
+    </header>
+
+    <div class="navmenu">
+        <audio id="audioPlayer" class="audio"></audio>
+
+            <button id="playPauseButton">Play</button>
+            <input type="range" id="progressBar" value="0" max="100">
+            <input type="range" id="volumeControl" value="100" max="100">
+
+        <a href="index.html" class="button" style="margin-left: 200px;">home</a>
+        <a href="games.html" class="button" style="margin-left: 100px;">games</a>
+        <a href="extra.html" class="button" style="margin-left: 100px;">extra</a>
+    </div>
+
+    <main>
+        <div id="games-container">
+            </div>
+    </main>
+
+    <script>
+        const games = [
+            { name: "Earthbound" },
+            { name: "Shin Megami Tensei" },
+            { name: "Sonic The Hedgehog" },
+            { name: "Sonic The Hedgehog 2" },
+            { name: "Pokemon FireRed" },
+        ];
+
+        function displayGames() {
+            const container = document.getElementById('games-container');
+          // Alphabetical sorting  
+            games.sort((a, b) => a.name.localeCompare(b.name));
+
+            games.forEach(game => {
+                const gameDiv = document.createElement('div');
+                gameDiv.classList.add('game-card');
+
+                const gameLink = document.createElement('a');
+                gameLink.href = `gameviewer.html?game=${encodeURIComponent(game.name)}`;
+
+                const gameImage = document.createElement('div');
+                gameImage.classList.add('game-image-container');
+
+                const imgElement = document.createElement('img');
+                imgElement.src = `images/games/${game.name}.png`;
+                imgElement.alt = game.name;
+
+                const textOverlay = document.createElement('div');
+                textOverlay.classList.add('game-name-overlay');
+
+                const gameName = document.createElement('h2');
+                gameName.textContent = game.name;
+
+                textOverlay.appendChild(gameName);
+                gameImage.appendChild(imgElement);
+                gameImage.appendChild(textOverlay);
+                gameLink.appendChild(gameImage);
+                gameDiv.appendChild(gameLink);
+                container.appendChild(gameDiv);
+            });
+        }
+
+        // Call the function to run when the page loads
+        window.onload = displayGames;
+    </script>
+
+    <div class="dkalogo">
+        <img src="images/dka.png" alt="dka" style="height: 70px; width: 120px;">
+    </div>
+
+    <script src="audioscript.js"></script>
+</body>
+</html>

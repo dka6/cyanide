@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cyanide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="fire">
+        <div class="logo">
+            <img src="images/cyanidelogo.png" alt="cyanide">
+            <p style="margin-top: -50px; color: rgb(78, 223, 78); margin-left: 250px;"> > Glory to Azerbaijan</p>
+        </div>
+    </header>
+
+    <div class="navmenu">
+        <audio id="audioPlayer" class="audio"></audio>
+
+            <button id="playPauseButton">Play</button>
+            <input type="range" id="progressBar" value="0" max="100">
+            <input type="range" id="volumeControl" value="100" max="100">
+
+        <a href="index.html" class="button" style="margin-left: 200px;">home</a>
+        <a href="games.html" class="button" style="margin-left: 100px;">games</a>
+        <a href="extra.html" class="button" style="margin-left: 100px;">extra</a>
+    </div>
+
+    <main class="content-container">
+    <div id="image-container">
+     <img id="random-image" src="" alt="Glory to Azerbaijan">
+    </div>
+        <div class="text-area">
+            <h1>Welcome to Our Site</h1>
+            <p>Blah Blah Blah Blah Blah</p>
+        </div>
+    </main>
+
+    <div class="dkalogo">
+        <img src="images/dka.png" alt="dka" style="height: 70px; width: 120px;">
+    </div>
+    <script>
+const images = [
+    'images/image1.png',
+    'images/image2.gif'
+];
+
+function generateRandomImage() {
+    // Get the image element by its ID
+    const imageElement = document.getElementById('random-image');
+
+    const randomIndex = Math.floor(Math.random() * images.length);
+
+    // Get the random image URL from the array
+    const randomImageUrl = images[randomIndex];
+
+    // Set the src attribute of the image element
+    imageElement.src = randomImageUrl;
+}
+
+// Call the function when the script is loaded to generate an image automatically
+generateRandomImage();
+    </script>
+    <script src="audioscript.js"></script>
+</body>
+</html>
